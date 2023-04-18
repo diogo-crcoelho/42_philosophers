@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:01:07 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/04/18 21:43:28 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:27:38 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,8 @@ static void	__rem(void *cont)
 			if (tmp->prev)
 				tmp->prev->next = tmp2;
 			else
-			{
 				init()->begin = tmp2;
-				// tmp2->prev = NULL;
-			}	
+			if (tmp2)
 			tmp2->prev = tmp->prev;
 			free(tmp->content);
 			free(tmp);
