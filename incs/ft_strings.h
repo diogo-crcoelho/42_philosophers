@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 19:12:40 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/04/18 16:05:27 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:13:37 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_strings
 	int					(*equal_n)(const char *, const char *, size_t);
 	int					(*contains)(const char *, const char *);
 	char				*(*trim)(const char *);
+	char				*(*join)(const char *, const char *, const char *);
 }	t_strings;
 
 t_strings	s(void);

@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 19:12:25 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/04/18 16:05:23 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:13:50 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char		*__strn_dup(const char *str, int size);
 int			__strn_cmp(const char *str1, const char *str2, unsigned long n);
 int			__strn_str(const char *haystack, const char *needle);
 char		*__str_trim(const char *str);
+char		*__str_join(const char *s1, const char *s2, const char *sep);
 
 static char	*__str_dup(const char *str)
 {
@@ -25,7 +26,7 @@ static char	*__str_dup(const char *str)
 	char	*ret;
 
 	size = __str_len(str, 0);
-	ret = gc().create(size + 1);
+	ret = gc().add(size + 1);
 	while (size--)
 		ret[size] = str[size];
 	return (ret);
@@ -69,7 +70,7 @@ char	*__str_trim(const char *str)
 	if (!str)
 		return (NULL);
 	size = check_size(str);
-	res = gc().create(size + 1);
+	res = gc().add(size + 1);
 	i = 0;
 	j = -1;
 	while (str[i] && ' ' == str[i])
@@ -89,7 +90,8 @@ t_strings	s(void)
 		__str_cmp,
 		__strn_cmp,
 		__strn_str,
-		__str_trim
+		__str_trim,
+		__str_join
 	};
 
 	return (string);

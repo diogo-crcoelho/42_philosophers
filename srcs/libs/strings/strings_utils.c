@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strings_utils1.c                                   :+:      :+:    :+:   */
+/*   strings_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 16:38:24 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/02/26 16:25:20 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:08:10 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*__strn_dup(const char *str, int size)
 
 	if (__str_len(str, 0) < size)
 		size = __str_len(str, 0);
-	ret = gc().create(size + 1);
+	ret = gc().add(size + 1);
 	while (size--)
 		ret[size] = str[size];
 	return (ret);
@@ -85,7 +85,7 @@ char	**__ft_split(const char *str, int sep)
 	if (word && ++size)
 		strings = __ft_split(str + i, sep);
 	else
-		strings = (char **)gc().create((size + 1) * sizeof(char *));
+		strings = (char **)gc().add((size + 1) * sizeof(char *));
 	strings[size--] = word;
 	if (size < 0)
 		++size;
