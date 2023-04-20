@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:53 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/04/18 22:27:04 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:57:25 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	print_msg(int time, int phil, char *action)
 
 	s_time = ft_itoa(time);
 	s_phil = ft_itoa(phil);
-	msg = s().join(s_time, action, s_phil);
+	msg = s().join(s_time, s_phil, " ");
+	msg = s().join(msg, action, " ");
 	write(1, msg, s().len(msg, 0));
 	gc().remove(msg);
 	gc().remove(s_phil);
