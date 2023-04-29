@@ -18,10 +18,14 @@
 typedef struct s_env
 {
     pthread_t   *philos;
+    int         ttd;
+    int         tte;
+    int         tts;
+    int         min_eat;
 }   t_env;
 
+t_env	*env();
 void    err_handle(char *err);
-
 void	print_msg(int time, int phil, char *action);
 
 #endif
