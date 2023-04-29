@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 	
-	print_msg(1 ,23, "has taken a fork\n");
 	gc().end();
 	return (0);
 }

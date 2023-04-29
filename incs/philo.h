@@ -13,6 +13,15 @@
 #ifndef PHILO_H
 # define PHILO_H
 
+# include <pthread.h>
+
+typedef struct s_env
+{
+    pthread_t   *philos;
+}   t_env;
+
+void    err_handle(char *err);
+
 void	print_msg(int time, int phil, char *action);
 
 #endif

@@ -16,8 +16,9 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address
 
 SRCS =	libs/gc/gc.c libs/gc/gc_utils.c \
-		libs/strings/strings.c libs/strings/strings_utils.c libs/strings/strings_utils1.c\
-		parsing.c message.c\
+		libs/strings/strings.c libs/strings/strings_utils.c libs/strings/strings_utils1.c \
+		parsing.c message.c \
+		error.c utils.c \
 		philo.c
 
 B_SRCS = 
