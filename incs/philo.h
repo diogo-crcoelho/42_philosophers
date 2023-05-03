@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/04/18 21:30:00 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:19:57 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,20 @@
 
 # include <pthread.h>
 
+typedef struct	s_phiilo
+{
+	pthread_t   philo;
+	int			min_eat;
+}	t_philo;
+
 typedef struct s_env
 {
-    pthread_t   *philos;
+    t_philo		*philos;
+	int			forks;
     int         ttd;
     int         tte;
     int         tts;
-    int         min_eat;
+	int			min_eat;
 }   t_env;
 
 t_env	*env();
