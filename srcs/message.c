@@ -6,16 +6,16 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:53 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/04/20 20:57:25 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:44:25 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_strings.h"
-#include <unistd.h>
+#include "philo.h"
+#include <stdio.h>
 
-//Meter esta merda em recursiva;
-
-void	print_msg()
+void	print_msg(int time, int phil, char *action)
 {
-	return;
+	pthread_mutex_lock(&env()->m_message);
+	printf("%d %d %s\n", time, phil, action);
+	pthread_mutex_unlock(&env()->m_message);
 }

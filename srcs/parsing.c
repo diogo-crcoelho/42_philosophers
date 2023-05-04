@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/04 17:23:24 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:59:02 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	s_atoi(char *str)
 	}
 	return (val);
 }
-#include <stdio.h>
 void	init_philos(int n)
 {
 	env()->philos = gc().add((n + 1) * sizeof(t_philo));
@@ -49,9 +48,7 @@ void	init_philos(int n)
 		(env()->philos[n]).forks[1] = n;
 	}
 	(env()->philos[0]).forks[0] = env()->forks - 1;
-
 }
-
 int	parsing(char **argv)
 {
 	env()->forks = s_atoi(argv[1]);

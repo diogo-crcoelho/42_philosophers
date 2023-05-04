@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/03 23:42:52 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:46:55 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,16 @@ int	main(int argc, char **argv)
 {
 	(void)argc;
 	(void)argv;
-	if (!parsing(argv))
-		printf("%d-%d-%d-%d-%d\n", env()->forks, env()->ttd, \
-		env()->tte, env()->tts, env()->min_eat);
-	else
+	if (parsing(argv))
 		err_handle("Error parsing input!");
+	else
+	{
+		gettimeofday(&env()->start, NULL);
+	}
+	sleeper();
+	sleeper();
+	sleeper();
+	sleeper();
 	gc().end();
 	return (0);
 }
