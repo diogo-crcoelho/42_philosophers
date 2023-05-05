@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/04 18:44:28 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/05 22:34:14 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_phiilo
 	pthread_t	philo;
 	int			forks[2];
 	int			min_eat;
+	long		last_ate;
 }	t_philo;
 
 typedef struct s_env
@@ -41,7 +42,8 @@ typedef struct s_env
 t_env			*env(void);
 void			err_handle(char *err);
 void			print_msg(int time, int phil, char *action);
-void	sleeper();
+void			sleeper(int time);
 
+void			p_sleep();
 
 #endif

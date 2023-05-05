@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/05 21:57:34 by dcarvalh         ###   ########.fr       */
+/*   Created: 2023/05/04 17:59:25 by dcarvalh          #+#    #+#             */
+/*   Updated: 2023/05/05 22:35:10 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "gc.h"
 #include "philo.h"
-#include <stdio.h>
 
-int		parsing(char **argv);
-
-t_env	*env(void)
+void	eat(t_philo *philo)
 {
-	static t_env	env;
+	long		ini;
+	t_timeval	tv;
+	int			time;
 
-	return (&env);
-}
-
-int	main(int argc, char **argv)
-{
-	(void)argc;
-	(void)argv;
-	if (parsing(argv))
-		err_handle("Error parsing input!");
-	else
-	{
-		gettimeofday(&env()->start, NULL);
-	}
-	p_sleep();
-	p_sleep();
-	p_sleep();
-	p_sleep();
-	gc().end();
-	return (0);
+	ini = env()->start.tv_sec *1000 + env()->start.tv_usec / 1000;
+	gettimeofday(&tv, NULL);
+	time = (tv.tv_sec *1000 + tv.tv_usec / 1000) - ini;
+	philo->last_ate = (tv.tv_sec *1000 + tv.tv_usec / 1000);
+	print_msg(time, 0, "is eating");
+	sleeper(env()->tte);
 }

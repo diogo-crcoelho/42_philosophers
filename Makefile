@@ -6,7 +6,7 @@
 #    By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 20:44:34 by dcarvalh          #+#    #+#              #
-#    Updated: 2023/05/04 18:43:12 by dcarvalh         ###   ########.fr        #
+#    Updated: 2023/05/05 22:38:31 by dcarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -g -fsanitize=thread #-fsanitize=address
 SRCS =	libs/gc/gc.c libs/gc/gc_utils.c \
 		libs/strings/strings.c libs/strings/strings_utils.c libs/strings/strings_utils1.c \
 		parsing.c message.c \
-		sleep.c \
+		sleep.c eat.c\
 		error.c utils.c \
 		philo.c
 
@@ -90,3 +90,13 @@ norm : norm_M
 		< norm.txt cat | grep -v "OK" | grep --color=always -e "^" -e "Error:"; \
 	fi ;
 	@rm -f norm.txt
+
+git : $(SRCS)
+	@git add $(SRCS)
+	@$(echo) "$(C_GREEN) SRCS added to git $(C_PURPLE) Compiling:$(C_RESET)" $(NAME)
+	@git commit -am "make commit"
+	@$(echo) "$(C_GREEN) SRCS commited $(C_PURPLE) Compiling:$(C_RESET)" $(NAME)
+	@git push origin master
+	@$(echo) "$(C_GREEN) PUSHED $(C_PURPLE) Compiling:$(C_RESET)" $(NAME)
+
+	
