@@ -6,14 +6,14 @@
 #    By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 20:44:34 by dcarvalh          #+#    #+#              #
-#    Updated: 2023/05/05 22:40:25 by dcarvalh         ###   ########.fr        #
+#    Updated: 2023/05/05 22:42:15 by dcarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=thread #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address -fsanitize=thread 
 
 SRCS =	libs/gc/gc.c libs/gc/gc_utils.c \
 		libs/strings/strings.c libs/strings/strings_utils.c libs/strings/strings_utils1.c \

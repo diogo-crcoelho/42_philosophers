@@ -6,13 +6,13 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:59:25 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/05 22:35:10 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/05 22:44:58 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	eat(t_philo *philo)
+void	p_eat(t_philo *philo)
 {
 	long		ini;
 	t_timeval	tv;

@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/05 21:57:34 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/05 22:45:42 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	main(int argc, char **argv)
 		gettimeofday(&env()->start, NULL);
 	}
 	p_sleep();
+	p_eat(env()->philos);
 	p_sleep();
-	p_sleep();
-	p_sleep();
+	p_eat(env()->philos);
 	gc().end();
 	return (0);
 }

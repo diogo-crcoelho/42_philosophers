@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/05 22:34:14 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/05 22:44:51 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void			print_msg(int time, int phil, char *action);
 void			sleeper(int time);
 
 void			p_sleep();
+void			p_eat(t_philo *philo);
 
 #endif
