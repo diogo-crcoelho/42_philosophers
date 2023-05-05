@@ -6,7 +6,7 @@
 #    By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 20:44:34 by dcarvalh          #+#    #+#              #
-#    Updated: 2023/05/05 22:39:24 by dcarvalh         ###   ########.fr        #
+#    Updated: 2023/05/05 22:39:41 by dcarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,9 +93,9 @@ norm : norm_M
 
 git : $(SRCS)
 	@git add $(SRCS)
-	@$(echo) "$(C_GREEN) SRCS added to git $(C_RESET)" $(NAME)
+	@$(echo) "$(C_GREEN) SRCS added to git $(C_RESET)"
 	@git commit -am "make commit"
-	@$(echo) "$(C_PURPLE) SRCS commited $(C_RESET)" $(NAME)
+	@$(echo) "$(C_PURPLE) SRCS commited $(C_RESET)"
 	@git push origin master
 	@$(echo) "$(C_GREEN) PUSHED $(C_RESET)" $(NAME)
 
