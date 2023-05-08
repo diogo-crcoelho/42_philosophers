@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/08 23:24:49 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 00:17:17 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ void			check_dead();
 
 void			p_sleep(int i);
 void			p_eat(int i);
+void    		p_think(int i)
+
 
 #endif

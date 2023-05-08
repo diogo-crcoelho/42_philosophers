@@ -6,7 +6,7 @@
 #    By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 20:44:34 by dcarvalh          #+#    #+#              #
-#    Updated: 2023/05/08 22:30:02 by dcarvalh         ###   ########.fr        #
+#    Updated: 2023/05/09 00:17:32 by dcarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address -fsanitize=thread
 SRCS =	libs/gc/gc.c libs/gc/gc_utils.c \
 		libs/strings/strings.c libs/strings/strings_utils.c libs/strings/strings_utils1.c \
 		parsing.c message.c \
-		sleep.c eat.c dead.c\
+		sleep.c eat.c dead.c think.c\
 		error.c utils.c \
 		philo.c
 

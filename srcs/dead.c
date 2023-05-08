@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:07:38 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/08 23:04:26 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/08 23:26:03 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void    killer(t_timeval tv, int i)
         pthread_mutex_unlock(&env()->m_dead);
     }
 }
-#include <stdio.h>
 void    check_dead()
 {
     int         i;
