@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/08 22:37:11 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/08 23:24:49 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ long			cut_time(t_timeval tv);
 void			check_dead();
 
 
-void			p_sleep();
-void			p_eat(t_philo *philo);
+void			p_sleep(int i);
+void			p_eat(int i);
 
 #endif
