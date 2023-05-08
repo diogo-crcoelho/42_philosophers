@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/05 22:45:42 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:56:47 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ int	main(int argc, char **argv)
 		gettimeofday(&env()->start, NULL);
 	}
 	p_sleep();
-	p_eat(env()->philos);
-	p_sleep();
-	p_eat(env()->philos);
+	printf("fuckooo%d\n", env()->dead);
+
+	if (env()->dead)
+		print_msg((env()->philos[env()->dead - 1]).tod, env()->dead, "has died");
 	gc().end();
 	return (0);
 }
