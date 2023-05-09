@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 00:17:17 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 02:47:10 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_env
 {
 	t_philo			*philos;
 	int				forks;
+	int				*l_forks;
 	pthread_mutex_t	*m_forks;
 	pthread_mutex_t	m_message;
 	int				dead;
@@ -53,7 +54,7 @@ void			check_dead();
 
 void			p_sleep(int i);
 void			p_eat(int i);
-void    		p_think(int i)
+void    		p_think(int i);
 
 
 #endif

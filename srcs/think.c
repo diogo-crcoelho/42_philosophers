@@ -6,9 +6,11 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 00:16:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 00:17:21 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 00:19:39 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "philo.h"
 
 void    p_think(int i)
 {
@@ -21,5 +23,4 @@ void    p_think(int i)
 	time = cut_time(tv) - ini;
 	if (!env()->dead)
 		print_msg(time, i, "is thinking");
-}
 }
