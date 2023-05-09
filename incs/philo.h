@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 02:47:10 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 03:19:58 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void			print_msg(int time, int phil, char *action);
 void			sleeper(int time);
 long			cut_time(t_timeval tv);
 void			check_dead();
-
+void			quit();
 
 void			p_sleep(int i);
 void			p_eat(int i);

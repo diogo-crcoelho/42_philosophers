@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 02:57:26 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 03:20:28 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ void	init_philos(int n)
 {
 	env()->philos = gc().add(n * sizeof(t_philo));
 	env()->l_forks = gc().add(n * sizeof(int));
-	env()->m_forks = gc().add((n + 1) * sizeof(pthread_mutex_t));
+	env()->m_forks = gc().add(n * sizeof(pthread_mutex_t));
 	while (n--)
 	{
+		pthread_mutex_init(&env()->m_forks[n], NULL);
 		(env()->philos[n]).min_eat = env()->min_eat;
 		(env()->philos[n]).forks[0] = n - 1;
 		(env()->philos[n]).forks[1] = n;
@@ -59,10 +60,12 @@ int	parsing(char **argv)
 	env()->tte = s_atoi(argv[3]);
 	env()->tts = s_atoi(argv[4]);
 	env()->min_eat = s_atoi(argv[5]);
-	if (env()->forks)
+	if (!env()->forks)
 		return (-1);
 	init_philos(env()->forks);
 	if (!env()->ttd || !env()->tte || !env()->tts)
 		return (-1);
+	pthread_mutex_init(&env()->m_message, NULL);
+	pthread_mutex_init(&env()->m_dead, NULL);	
 	return (0);
 }
