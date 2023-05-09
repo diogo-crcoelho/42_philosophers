@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 09:24:54 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 09:30:33 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	*phil_loop(void *arg)
 	t = 0;
 	p = (t_philo *)arg;
 	if (p->forks[1] % 2 != 0)
-		usleep(100);
+		usleep(10);
 	while(!env()->dead)
 	{		
 	if (!env()->l_forks[p->forks[0]] && !env()->l_forks[p->forks[1]])
@@ -48,7 +48,7 @@ void	*phil_loop(void *arg)
 	{
 		if (!t)
 			p_think(p->forks[1] + 1);
-		usleep(50);
+		usleep(5);
 		t = 1;
 	}
 	}
