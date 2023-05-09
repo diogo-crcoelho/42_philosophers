@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 03:20:28 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 09:11:58 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <limits.h>
 
 int		__isdigit(int c);
+void	*phil_loop(void *arg);
+
 
 int	s_atoi(char *str)
 {
@@ -37,6 +39,7 @@ int	s_atoi(char *str)
 	}
 	return (val);
 }
+#include <unistd.h>
 
 void	init_philos(int n)
 {
@@ -49,12 +52,14 @@ void	init_philos(int n)
 		(env()->philos[n]).min_eat = env()->min_eat;
 		(env()->philos[n]).forks[0] = n - 1;
 		(env()->philos[n]).forks[1] = n;
+		(env()->philos[0]).forks[0] = env()->forks - 1;
+		pthread_create(&((env()->philos[n]).philo), NULL, phil_loop, &(env()->philos[n]));
 	}
-	(env()->philos[0]).forks[0] = env()->forks - 1;
 }
 
 int	parsing(char **argv)
 {
+	gettimeofday(&env()->start, NULL);
 	env()->forks = s_atoi(argv[1]);
 	env()->ttd = s_atoi(argv[2]);
 	env()->tte = s_atoi(argv[3]);
@@ -62,10 +67,10 @@ int	parsing(char **argv)
 	env()->min_eat = s_atoi(argv[5]);
 	if (!env()->forks)
 		return (-1);
-	init_philos(env()->forks);
 	if (!env()->ttd || !env()->tte || !env()->tts)
 		return (-1);
 	pthread_mutex_init(&env()->m_message, NULL);
-	pthread_mutex_init(&env()->m_dead, NULL);	
+	pthread_mutex_init(&env()->m_dead, NULL);
+	init_philos(env()->forks);
 	return (0);
 }

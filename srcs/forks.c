@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 02:48:54 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 02:55:06 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/09 07:35:20 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void    change_fork(int n)
 {
-    int left;
-    int right;
-
-    left = env()->philos[n - 1].forks[0];
-    right = env()->philos[n - 1].forks[1];
-    pthread_mutex_lock(&env()->m_forks[left]);
-    pthread_mutex_lock(&env()->m_forks[right]);
-    env()->l_forks[left] = !env()->l_forks[left];
-    env()->l_forks[right] = !env()->l_forks[right];
-    pthread_mutex_unlock(&env()->m_forks[right]); 
-    pthread_mutex_unlock(&env()->m_forks[left]);
+	static int	i;
+	t_philo		*philo;
+	
+	philo = &env()->philos[n - 1];
+	pthread_mutex_lock(&env()->m_forks[philo->forks[i]]);
+    env()->l_forks[philo->forks[i]] = !env()->l_forks[philo->forks[i]];
+    pthread_mutex_unlock(&env()->m_forks[philo->forks[i++]]);
+	if (i < 2)
+		change_fork(n);
+	i = 0;
 }
