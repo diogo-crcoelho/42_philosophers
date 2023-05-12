@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 09:16:12 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:27:39 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_philo
 	pthread_t	philo;
 	int			forks[2];
 	int			min_eat;
+	pthread_mutex_t	m_ate;
 	long		last_ate;
 	int			tod;
 }	t_philo;
@@ -52,6 +53,10 @@ long			cut_time(t_timeval tv);
 void			check_dead();
 void			quit();
 void			change_fork(int i);
+int				dead_inside(void);
+int				av_forks(t_philo *p);
+
+
 
 
 void			p_sleep(int i);

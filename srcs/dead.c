@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:07:38 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/08 23:26:03 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:18:58 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,19 @@ void    check_dead()
     dead = cut_time(tv) - cut_time(env()->start);
     while (++i < env()->forks)
     {
+        pthread_mutex_lock(&env()->philos[i].m_ate);
         autopsy = dead - (env()->philos[i]).last_ate;
+        pthread_mutex_unlock(&env()->philos[i].m_ate);
         if(autopsy > env()->ttd)
             killer(tv, i + 1);  
     }
+}
+int	dead_inside()
+{
+	int a;
+
+	pthread_mutex_lock(&env()->m_dead);
+	a = env()->dead;
+    pthread_mutex_unlock(&env()->m_dead);
+	return (a);
 }

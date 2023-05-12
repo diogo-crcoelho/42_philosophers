@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:03:29 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/08 23:19:57 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:32:02 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sleeper(int time)
 	{
 		gettimeofday(&tv, NULL);
 		check_dead();
-		usleep(100);
+		usleep(50);
 	}
 }
 

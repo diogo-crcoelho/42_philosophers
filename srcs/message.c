@@ -6,12 +6,12 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:53 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/04 18:44:25 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:38:19 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
 #include <stdio.h>
+#include "philo.h"
 
 void	print_msg(int time, int phil, char *action)
 {

@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 02:48:54 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 07:35:20 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:45:05 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,15 @@ void    change_fork(int n)
 	if (i < 2)
 		change_fork(n);
 	i = 0;
+}
+
+int	av_forks(t_philo *p)
+{
+	int	a;
+	pthread_mutex_lock(&env()->m_forks[p->forks[0]]);
+	pthread_mutex_lock(&env()->m_forks[p->forks[1]]);
+	a = (!env()->l_forks[p->forks[0]] && !env()->l_forks[p->forks[1]]);
+    pthread_mutex_unlock(&env()->m_forks[p->forks[0]]);
+    pthread_mutex_unlock(&env()->m_forks[p->forks[1]]);
+	return (a);
 }
