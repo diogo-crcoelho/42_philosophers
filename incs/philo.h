@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/12 17:27:39 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:28:18 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ typedef struct timeval	 t_timeval;
 
 typedef struct s_philo
 {
-	pthread_t	philo;
-	int			forks[2];
-	int			min_eat;
+	pthread_t		philo;
+	int				forks[2];	
+	int				min_eat;
+	pthread_mutex_t	m_eaten;
+	long			last_ate;
 	pthread_mutex_t	m_ate;
-	long		last_ate;
-	int			tod;
+	int				tod;
+	int				pair;
 }	t_philo;
 
 typedef struct s_env
@@ -41,8 +43,7 @@ typedef struct s_env
 	int				ttd;
 	int				tte;
 	int				tts;
-	int				min_eat;
-	
+	int				min_eat;	
 }	t_env;
 
 t_env			*env(void);
@@ -52,9 +53,10 @@ void			sleeper(int time);
 long			cut_time(t_timeval tv);
 void			check_dead();
 void			quit();
-void			change_fork(int i);
+void			change_fork(int i, int flag);
 int				dead_inside(void);
 int				av_forks(t_philo *p);
+int	check_full();
 
 
 

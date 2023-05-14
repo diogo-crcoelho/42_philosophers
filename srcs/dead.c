@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:07:38 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/12 17:18:58 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:10:15 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void    killer(t_timeval tv, int i)
 {   
-    if (!env()->dead)
+    if (!dead_inside())
     {
         pthread_mutex_lock(&env()->m_dead);
         env()->dead = i;
-        (env()->philos[i - 1]).tod = cut_time(tv) - cut_time(env()->start);
         pthread_mutex_unlock(&env()->m_dead);
+        (env()->philos[i - 1]).tod = cut_time(tv) - cut_time(env()->start);
     }
 }
 void    check_dead()

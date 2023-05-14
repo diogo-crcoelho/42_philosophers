@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:42:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/09 03:19:23 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/14 18:46:43 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ long	cut_time(t_timeval tv)
 void	quit()
 {
 	while(env()->forks--)
+	{
 		pthread_mutex_destroy(&env()->m_forks[env()->forks]);
+		
+	}
 	pthread_mutex_destroy(&env()->m_message);
-	pthread_mutex_destroy(&env()->m_dead);	
-	gc().end();
+	pthread_mutex_destroy(&env()->m_dead);
 }
