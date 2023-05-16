@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/14 19:28:18 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/16 02:54:31 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef struct timeval	 t_timeval;
+typedef struct timeval	t_timeval;
 
 typedef struct s_philo
 {
@@ -51,19 +51,15 @@ void			err_handle(char *err);
 void			print_msg(int time, int phil, char *action);
 void			sleeper(int time);
 long			cut_time(t_timeval tv);
-void			check_dead();
-void			quit();
+void			check_dead(void);
+void			quit(void);
 void			change_fork(int i, int flag);
 int				dead_inside(void);
 int				av_forks(t_philo *p);
-int	check_full();
-
-
-
+int				check_full(void);
 
 void			p_sleep(int i);
 void			p_eat(int i);
-void    		p_think(int i);
-
+void			p_think(int i);
 
 #endif

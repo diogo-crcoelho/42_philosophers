@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/16 01:01:14 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/16 02:50:51 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ void	party(int i)
 	p_sleep(i);
 	usleep(50);
 }
+
 void	*phil_loop(void *arg)
 {
-	t_philo *p;
+	t_philo	*p;
 	int		t;
-	
+
 	t = 0;
 	p = (t_philo *)arg;
 	p->pair = p->forks[1] % 2;
 	if (p->pair)
 		usleep(env()->forks / 2);
-	while(!dead_inside() && check_full())
+	while (!dead_inside() && check_full())
 	{	
 		if (av_forks(p))
 		{
@@ -55,15 +56,17 @@ void	*phil_loop(void *arg)
 			t = 1;
 		}
 	}
-	return NULL;
+	return (NULL);
 }
 
 int	main(int argc, char **argv)
 {
 	int	parsed;
+	int	i;
 
 	(void)argc;
-	parsed = parsing(argv);	
+	i = -1;
+	parsed = parsing(argv);
 	if (-1 == parsed && printf("Error parsing input!"))
 	{
 		gc().end();
@@ -71,7 +74,7 @@ int	main(int argc, char **argv)
 	}
 	else if (!parsed)
 	{
-		for (int i = 0; i < env()->forks; i++)
+		while (++i < env()->forks)
 			pthread_join(env()->philos[i].philo, NULL);
 		parsed = check_full();
 	}
