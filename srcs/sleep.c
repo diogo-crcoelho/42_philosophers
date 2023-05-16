@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:03:29 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/14 19:38:02 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:13:44 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 
 void	sleeper(int time)
 {
-	
 	t_timeval	tv;
-	long 		goal;
+	long		goal;
 
 	gettimeofday(&tv, NULL);
 	goal = cut_time(tv) + time;

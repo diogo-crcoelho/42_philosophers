@@ -6,21 +6,21 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 00:16:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/12 15:32:09 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:22:26 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    p_think(int i)
+void	p_think(int i)
 {
-    long		ini;
+	long		ini;
 	t_timeval	tv;
 	int			time;
 
 	ini = cut_time(env()->start);
 	gettimeofday(&tv, NULL);
 	time = cut_time(tv) - ini;
-	if (!env()->dead)
+	if (!dead_inside())
 		print_msg(time, i, "is thinking");
 }

@@ -6,17 +6,17 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/14 18:59:23 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:12:55 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_strings.h"
 #include "philo.h"
 #include <limits.h>
+#include <unistd.h>
 
 int		__isdigit(int c);
 void	*phil_loop(void *arg);
-
 
 int	s_atoi(char *str)
 {
@@ -39,14 +39,12 @@ int	s_atoi(char *str)
 	}
 	return (val);
 }
-#include <unistd.h>
 
 void	init_philos(int n)
 {
 	env()->philos = gc().add(n * sizeof(t_philo));
 	env()->l_forks = gc().add(n * sizeof(int));
 	env()->m_forks = gc().add(n * sizeof(pthread_mutex_t));
-	
 	while (n--)
 	{
 		pthread_mutex_init(&env()->m_forks[n], NULL);
@@ -55,8 +53,9 @@ void	init_philos(int n)
 		(env()->philos[n]).forks[1] = n;
 		(env()->philos[0]).forks[0] = env()->forks - 1;
 	}
-	while(++n < env()->forks)
-		pthread_create(&((env()->philos[n]).philo), NULL, phil_loop, &(env()->philos[n]));
+	while (++n < env()->forks)
+		pthread_create(&((env()->philos[n]).philo), NULL, phil_loop, \
+		&(env()->philos[n]));
 }
 
 int	parsing(char **argv)

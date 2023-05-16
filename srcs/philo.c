@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/14 21:04:28 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:01:14 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	party(int i)
 {
 	p_eat(i);
 	p_sleep(i);
-	usleep(30);
+	usleep(50);
 }
 void	*phil_loop(void *arg)
 {
@@ -39,7 +39,7 @@ void	*phil_loop(void *arg)
 	p = (t_philo *)arg;
 	p->pair = p->forks[1] % 2;
 	if (p->pair)
-		usleep(env()->forks / 4);
+		usleep(env()->forks / 2);
 	while(!dead_inside() && check_full())
 	{	
 		if (av_forks(p))
@@ -74,10 +74,11 @@ int	main(int argc, char **argv)
 		for (int i = 0; i < env()->forks; i++)
 			pthread_join(env()->philos[i].philo, NULL);
 		parsed = check_full();
-		quit();
 	}
 	if (dead_inside() && parsed)
 		print_msg((env()->philos[env()->dead - 1]).tod, env()->dead, "died");
+	if (!parsed)
+		quit();
 	gc().end();
 	return (0);
 }

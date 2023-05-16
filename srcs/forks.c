@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 02:48:54 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/14 18:58:45 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:47:38 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	av_forks(t_philo *p)
 	pthread_mutex_lock(&env()->m_forks[p->forks[!p->pair]]);
 	a = (!env()->l_forks[p->forks[0]] && !env()->l_forks[p->forks[1]]);
     pthread_mutex_unlock(&env()->m_forks[p->forks[!p->pair]]);
-    pthread_mutex_unlock(&env()->m_forks[p->forks[p->pair]]);
+	pthread_mutex_unlock(&env()->m_forks[p->forks[p->pair]]);
 	return (a);
 }
