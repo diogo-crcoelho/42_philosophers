@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:59:25 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/17 17:20:27 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:33:28 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	check_full(void)
 	pthread_mutex_lock(&env()->m_eat);
 	env()->feeder = 1;
 	pthread_mutex_unlock(&env()->m_eat);
-}	
+}
+
 void	p_eat(int i)
 {
 	t_timeval	tv;
@@ -58,15 +59,14 @@ void	p_eat(int i)
 	sleeper(env()->tte);
 	change_fork(i, philo->pair);
 	eater(i - 1);
-	// check_full()
 }
 
-int	eaten()
+int	eaten(void)
 {
-	int full;
-	
+	int	full;
+
 	pthread_mutex_lock(&env()->m_eat);
-	full = env()->feeder && env()->min_eat;
+	full = (env()->feeder && env()->min_eat);
 	pthread_mutex_unlock(&env()->m_eat);
 	return (full);
 }

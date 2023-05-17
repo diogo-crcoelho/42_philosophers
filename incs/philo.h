@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/17 16:59:24 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:32:13 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,8 @@ void			quit(void);
 void			change_fork(int i, int flag);
 int				dead_inside(void);
 int				av_forks(t_philo *p);
-void				check_full(void);
-int	eaten();
-
+void			check_full(void);
+int				eaten(void);
 
 void			p_sleep(int i);
 void			p_eat(int i);
