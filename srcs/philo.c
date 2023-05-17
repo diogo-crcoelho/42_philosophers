@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/17 17:28:18 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:55:39 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	party(int i)
 {
 	p_eat(i);
 	check_full();
+	if (eaten())
+		return ;
 	p_sleep(i);
 	usleep(50);
 }
@@ -55,7 +57,6 @@ void	*phil_loop(void *arg)
 				p_think(p->forks[1] + 1);
 			t = 1;
 		}
-		check_dead();
 	}
 	return (NULL);
 }

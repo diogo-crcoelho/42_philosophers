@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:59:25 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/17 17:33:28 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:52:18 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	p_eat(int i)
 	pthread_mutex_lock(&philo->m_ate);
 	philo->last_ate = time;
 	pthread_mutex_unlock(&philo->m_ate);
-	if (!dead_inside() && !eaten())
+	if (!dead_inside())
 		print_msg(time, i, "is eating");
 	sleeper(env()->tte);
 	change_fork(i, philo->pair);
