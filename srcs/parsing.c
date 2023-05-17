@@ -29,37 +29,15 @@ int	s_atoi(char *str)
 	if (!s().len(str, 0))
 		return (0);
 	if (s().contains(str, "-"))
-		return (0);
+		return (-1);
 	while (str && str[++i])
 	{
 		old = val;
 		val = val * 10 + (str[i] - 48);
 		if (val < old || !__isdigit(str[i]))
-			return (0);
+			return (-1);
 	}
 	return (val);
-}
-
-int	last_arg(char *argv)
-{
-	int		old;
-	long	val;
-	int		i;
-
-	i = -1;
-	val = 0;
-	if (!s().len(argv, 0))
-		return (1);
-	if (s().contains(argv, "-") || !s().equal(argv, "0"))
-		return (0);
-	while (argv && argv[++i])
-	{
-		old = val;
-		val = val * 10 + (argv[i] - 48);
-		if (val < old || !__isdigit(argv[i]))
-			return (0);
-	}
-	return (1);
 }
 
 void	init_philos(int n)
@@ -82,16 +60,14 @@ void	init_philos(int n)
 
 int	parsing(char **argv)
 {
-	if (!last_arg(argv[5]))
-		return (-1);
 	env()->forks = s_atoi(argv[1]);
 	env()->ttd = s_atoi(argv[2]);
 	env()->tte = s_atoi(argv[3]);
 	env()->tts = s_atoi(argv[4]);
 	env()->min_eat = s_atoi(argv[5]);
-	if (!env()->forks)
+	if (env()->forks <= 0 ||-1 == last_arg())
 		return (-1);
-	if (!env()->ttd || !env()->tte || !env()->tts)
+	if (env()->ttd <= 0|| env()->tte <= 0|| env()->tts <= 0)
 		return (-1);
 	pthread_mutex_init(&env()->m_message, NULL);
 	pthread_mutex_init(&env()->m_dead, NULL);
