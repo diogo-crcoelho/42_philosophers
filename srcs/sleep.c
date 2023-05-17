@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:03:29 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/16 01:13:44 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:20:17 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sleeper(int time)
 	while (cut_time(tv) < goal && !dead_inside())
 	{
 		gettimeofday(&tv, NULL);
-		check_dead();
+		// check_dead();
 		usleep(25);
 	}
 }
@@ -38,7 +38,7 @@ void	p_sleep(int i)
 	ini = cut_time(env()->start);
 	gettimeofday(&tv, NULL);
 	time = cut_time(tv) - ini;
-	if (!dead_inside())
+	if (!dead_inside() && !eaten())
 		print_msg(time, i, "is sleeping");
 	sleeper(env()->tts);
 }

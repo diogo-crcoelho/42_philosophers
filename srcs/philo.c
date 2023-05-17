@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/16 02:50:51 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:21:25 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_env	*env(void)
 void	party(int i)
 {
 	p_eat(i);
+	check_full();
 	p_sleep(i);
 	usleep(50);
 }
@@ -40,8 +41,8 @@ void	*phil_loop(void *arg)
 	p = (t_philo *)arg;
 	p->pair = p->forks[1] % 2;
 	if (p->pair)
-		usleep(env()->forks / 2);
-	while (!dead_inside() && check_full())
+		usleep(env()->forks * 3);
+	while (!dead_inside() && !eaten())
 	{	
 		if (av_forks(p))
 		{
@@ -52,9 +53,9 @@ void	*phil_loop(void *arg)
 		{
 			if (!t)
 				p_think(p->forks[1] + 1);
-			usleep(5);
 			t = 1;
 		}
+		check_dead();
 	}
 	return (NULL);
 }
@@ -76,9 +77,9 @@ int	main(int argc, char **argv)
 	{
 		while (++i < env()->forks)
 			pthread_join(env()->philos[i].philo, NULL);
-		parsed = check_full();
+		parsed = !eaten();
 	}
-	if (dead_inside() && parsed)
+	if (dead_inside() && !eaten())
 		print_msg((env()->philos[env()->dead - 1]).tod, env()->dead, "died");
 	if (!parsed)
 		quit();

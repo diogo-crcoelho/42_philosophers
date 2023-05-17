@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:25:17 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/16 02:54:31 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:59:24 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_env
 	pthread_mutex_t	m_message;
 	int				dead;
 	pthread_mutex_t	m_dead;
+	pthread_mutex_t	m_eat;
+	int				feeder;
 	t_timeval		start;	
 	int				ttd;
 	int				tte;
@@ -56,7 +58,9 @@ void			quit(void);
 void			change_fork(int i, int flag);
 int				dead_inside(void);
 int				av_forks(t_philo *p);
-int				check_full(void);
+void				check_full(void);
+int	eaten();
+
 
 void			p_sleep(int i);
 void			p_eat(int i);

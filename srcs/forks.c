@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 02:48:54 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/16 02:49:33 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:22:11 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	change_fork(int n, int flag)
 	pthread_mutex_lock(&env()->m_forks[philo->forks[!flag]]);
 	env()->l_forks[philo->forks[flag]] = !env()->l_forks[philo->forks[flag]];
 	env()->l_forks[philo->forks[!flag]] = !env()->l_forks[philo->forks[!flag]];
-	if (env()->l_forks[philo->forks[flag]])
+	if (env()->l_forks[philo->forks[flag]] && !eaten())
 		print_msg(time, n, "has taken a fork");
-	if (env()->l_forks[philo->forks[!flag]])
+	if (env()->l_forks[philo->forks[!flag]] && !eaten())
 		print_msg(time, n, "has taken a fork");
 	pthread_mutex_unlock(&env()->m_forks[philo->forks[!flag]]);
 	pthread_mutex_unlock(&env()->m_forks[philo->forks[flag]]);

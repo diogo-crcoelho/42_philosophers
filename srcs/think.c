@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 00:16:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/16 01:22:26 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:20:33 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	p_think(int i)
 	ini = cut_time(env()->start);
 	gettimeofday(&tv, NULL);
 	time = cut_time(tv) - ini;
-	if (!dead_inside())
+	if (!dead_inside() && !eaten())
 		print_msg(time, i, "is thinking");
 }
