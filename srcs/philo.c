@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/17 17:55:39 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:41:11 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "philo.h"
 #include <stdio.h>
 #include <unistd.h>
+
+int		last_arg(char *argv);
 
 int		parsing(char **argv);
 
@@ -66,7 +68,8 @@ int	main(int argc, char **argv)
 	int	parsed;
 	int	i;
 
-	(void)argc;
+	if (argc > 6)
+		return (0);
 	i = -1;
 	parsed = parsing(argv);
 	if (-1 == parsed && printf("Error parsing input!"))

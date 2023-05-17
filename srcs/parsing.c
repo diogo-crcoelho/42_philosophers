@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/16 01:12:55 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:42:16 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,28 @@ int	s_atoi(char *str)
 	return (val);
 }
 
+int	last_arg(char *argv)
+{
+	int		old;
+	long	val;
+	int		i;
+
+	i = -1;
+	val = 0;
+	if (!s().len(argv, 0))
+		return (1);
+	if (s().contains(argv, "-") || !s().equal(argv, "0"))
+		return (0);
+	while (argv && argv[++i])
+	{
+		old = val;
+		val = val * 10 + (argv[i] - 48);
+		if (val < old || !__isdigit(argv[i]))
+			return (0);
+	}
+	return (1);
+}
+
 void	init_philos(int n)
 {
 	env()->philos = gc().add(n * sizeof(t_philo));
@@ -60,6 +82,8 @@ void	init_philos(int n)
 
 int	parsing(char **argv)
 {
+	if (!last_arg(argv[5]))
+		return (-1);
 	env()->forks = s_atoi(argv[1]);
 	env()->ttd = s_atoi(argv[2]);
 	env()->tte = s_atoi(argv[3]);
