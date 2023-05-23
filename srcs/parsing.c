@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/23 20:34:11 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/23 22:13:48 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	parsing(char **argv)
 	if (env()->forks <= 0 || -1 == env()->min_eat)
 		return (-1);
 	if (argv[5] && !s().equal(argv[5], "0"))
-		return (-1);
+		return (-3);
 	if (env()->ttd <= 0 || env()->tte <= 0 || env()->tts <= 0)
 		return (-1);
 	pthread_mutex_init(&env()->m_message, NULL);

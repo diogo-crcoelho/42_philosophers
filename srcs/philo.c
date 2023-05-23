@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:01:13 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/17 21:41:11 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/23 22:14:45 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ int	main(int argc, char **argv)
 		return (0);
 	i = -1;
 	parsed = parsing(argv);
-	if (-1 == parsed && printf("Error parsing input!"))
+	if (-1 == parsed || -3 == parsed)
 	{
-		gc().end();
+		if (-1 == parsed && printf("Error parsing input!"))
+			gc().end();
 		return (-1);
 	}
 	else if (!parsed)
