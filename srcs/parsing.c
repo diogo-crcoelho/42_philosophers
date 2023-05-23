@@ -6,7 +6,7 @@
 /*   By: dcarvalh <dcarvalh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:00:59 by dcarvalh          #+#    #+#             */
-/*   Updated: 2023/05/18 14:58:42 by dcarvalh         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:34:11 by dcarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ int	parsing(char **argv)
 	env()->tte = s_atoi(argv[3]);
 	env()->tts = s_atoi(argv[4]);
 	env()->min_eat = s_atoi(argv[5]);
-	if (env()->forks <= 0 ||-1 == last_arg() || !s().equals(argv[5], "0"))
+	if (env()->forks <= 0 || -1 == env()->min_eat)
 		return (-1);
-	if (env()->ttd <= 0|| env()->tte <= 0|| env()->tts <= 0)
+	if (argv[5] && !s().equal(argv[5], "0"))
+		return (-1);
+	if (env()->ttd <= 0 || env()->tte <= 0 || env()->tts <= 0)
 		return (-1);
 	pthread_mutex_init(&env()->m_message, NULL);
 	pthread_mutex_init(&env()->m_dead, NULL);
